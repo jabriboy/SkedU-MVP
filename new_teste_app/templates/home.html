@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h1 align='center' class="sked">Sked<span class="U">U</span>s</h1>
+<form action="/" method="POST" align="center">
+    <button type="submit" style="text-transform: uppercase; font-size: 1.2rem;">generate</button>
+</form>
+
+<div class="table_container">
+    <!--<input type="text" class="nome">-->
+    <table id="escala" border="3">
+            <!-- <tr>
+                <th colspan="9" style="font-size: 1.5rem; text-transform: uppercase;">transmission</th>
+            </tr> -->
+            {% for rotation in user.rotation %}
+            <tr>
+                <th> </th>
+                <th style="font-size: 1.3rem;">monday</th>
+                <th style="font-size: 1.3rem;">tuesday</th>
+                <th style="font-size: 1.3rem;">wednesday</th>
+                <th style="font-size: 1.3rem;">thursday</th>
+                <th style="font-size: 1.3rem;">friday</th>
+                <th style="font-size: 1.3rem;">saturday</th>
+                <th style="font-size: 1.3rem;">sunday M</th>
+                <th style="font-size: 1.3rem;">sunday E</th>
+            </tr>
+            <tr>
+                <td style="font-size: 1.3rem;">switch</td>
+                <td> </td>
+                <td>{{rotation.tue_switch}}</td>
+                <td>{{rotation.wed_switch}}</td>
+                <td>{{rotation.thu_switch}}</td>
+                <td>{{rotation.fri_switch}}</td>
+                <td> </td>
+                <td>{{rotation.sun_m_switch}}</td>
+                <td>{{rotation.sun_e_switch}}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 1.3rem;">joystick</td>
+                <td> </td>
+                <td>{{rotation.tue_joystick}}</td>
+                <td>{{rotation.wed_joystick}}</td>
+                <td>{{rotation.thu_joystick}}</td>
+                <td>{{rotation.fri_joystick}}</td>
+                <td> </td>
+                <td>{{rotation.sun_m_joystick}}</td>
+                <td>{{rotation.sun_e_joystick}}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 1.3rem;">notebook</td>
+                <td> </td>
+                <td>{{rotation.tue_notebook}}</td>
+                <td>{{rotation.wed_notebook}}</td>
+                <td>{{rotation.thu_notebook}}</td>
+                <td>{{rotation.fri_notebook}}</td>
+                <td> </td>
+                <td>{{rotation.sun_m_notebook}}</td>
+                <td>{{rotation.sun_e_notebook}}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 1.3rem;">camera 4</td>
+                <td> </td>
+                <td>{{rotation.tue_camera}}</td>
+                <td>{{rotation.wed_camera}}</td>
+                <td>{{rotation.thu_camera}}</td>
+                <td>{{rotation.fri_camera}}</td>
+                <td> </td>
+                <td>{{rotation.sun_m_camera}}</td>
+                <td>{{rotation.sun_e_camera}}</td>
+            </tr>
+            {% endfor %}
+    </table>
+
+    <form action="/image" method="POST" align="center">
+        <button type="button" onclick="tableToCSV()">
+            download CSV
+        </button>
+        <!-- <button type="submit">download image</button> -->
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Manegement{% endblock %}
+
+{% block content %}
+
+<form action="/" method="POST">
+    <div>
+        <label for="Nome"></label>
+        <input type="text"
+        name="Nome"
+        id="Nome"
+        placeholder="Type the Name">
+    </div>
+
+    <div>
+        <label for="userId"></label>
+        <select name="userId" id="userId">
+            <option value=""></option>
+        </select>
+    </div>
+</form>
+
+{% endblock %}
